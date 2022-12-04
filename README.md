@@ -63,6 +63,16 @@ com.alibaba:fastjson —— 2.0.20
           }
        }
     }
+    
+## 使用方法
+
+MiraiHttp 已经上传到 Maven 中心存储库，可使用以下方法设置依赖
+
+    <dependency>
+        <groupId>io.github.xiaoyi311</groupId>
+        <artifactId>MiraiHttp</artifactId>
+        <version>1.0.0</version>
+    </dependency>
 
 ## 项目文档
 
