@@ -1,4 +1,4 @@
-package hi.xiaoyi311.event;
+package io.github.xiaoyi311.event;
 
 import java.util.EventListener;
 

@@ -1,6 +1,6 @@
-package hi.xiaoyi311.event;
+package io.github.xiaoyi311.event;
 
-import hi.xiaoyi311.MiraiHttpSession;
+import io.github.xiaoyi311.MiraiHttpSession;
 
 import java.util.EventObject;
 import java.util.Iterator;

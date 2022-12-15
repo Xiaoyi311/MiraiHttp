@@ -1,9 +1,9 @@
-package hi.xiaoyi311;
+package io.github.xiaoyi311;
 
-import hi.xiaoyi311.err.RobotNotFound;
-import hi.xiaoyi311.err.VerifyKeyError;
-import hi.xiaoyi311.event.EventManager;
-import hi.xiaoyi311.event.MiraiEventListener;
+import io.github.xiaoyi311.err.RobotNotFound;
+import io.github.xiaoyi311.err.VerifyKeyError;
+import io.github.xiaoyi311.event.EventManager;
+import io.github.xiaoyi311.event.MiraiEventListener;
 
 /**
  * MiraiHttp 主类

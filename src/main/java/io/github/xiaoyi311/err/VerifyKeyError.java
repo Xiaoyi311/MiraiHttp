@@ -1,4 +1,4 @@
-package hi.xiaoyi311.err;
+package io.github.xiaoyi311.err;
 
 /**
  * 验证密钥错误

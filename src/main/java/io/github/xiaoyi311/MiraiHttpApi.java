@@ -1,10 +1,9 @@
-package hi.xiaoyi311;
+package io.github.xiaoyi311;
 
 import com.alibaba.fastjson.JSONObject;
-import hi.xiaoyi311.entity.message.MessageChain;
-import hi.xiaoyi311.err.SessionNotBind;
-import hi.xiaoyi311.err.VerifyKeyError;
-import hi.xiaoyi311.util.Network;
+import io.github.xiaoyi311.entity.message.MessageChain;
+import io.github.xiaoyi311.err.SessionNotBind;
+import io.github.xiaoyi311.util.Network;
 
 /**
  * MiraiHttp Api 管理

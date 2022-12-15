@@ -1,6 +1,6 @@
-package hi.xiaoyi311.entity;
+package io.github.xiaoyi311.entity;
 
-import hi.xiaoyi311.MiraiHttpSession;
+import io.github.xiaoyi311.MiraiHttpSession;
 
 /**
  * 机器人实体

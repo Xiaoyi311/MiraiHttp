@@ -1,4 +1,4 @@
-package hi.xiaoyi311.entity;
+package io.github.xiaoyi311.entity;
 
 /**
  * 群实体类

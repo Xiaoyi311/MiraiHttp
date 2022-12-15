@@ -1,4 +1,4 @@
-package hi.xiaoyi311.entity;
+package io.github.xiaoyi311.entity;
 
 /**
  * 群权限
@@ -12,7 +12,7 @@ public enum Permission {
     /**
      * 管理员
      */
-    ADMIN,
+    ADMINISTRATOR,
 
     /**
      * 成员

@@ -1,4 +1,4 @@
-package hi.xiaoyi311.err;
+package io.github.xiaoyi311.err;
 
 /**
  * 指定机器人不存在

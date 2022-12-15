@@ -1,9 +1,9 @@
-package hi.xiaoyi311.event;
+package io.github.xiaoyi311.event;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import hi.xiaoyi311.MiraiHttpSession;
-import hi.xiaoyi311.entity.message.MessageChain;
+import io.github.xiaoyi311.MiraiHttpSession;
+import io.github.xiaoyi311.entity.message.MessageChain;
 
 /**
  * MiraiHttp 信息事件基类<br/>
@@ -43,7 +43,7 @@ public class MessageEventBase extends MiraiEventBase {
         //获取消息信息，位于第一个
         JSONObject data = (JSONObject) chain.get(0);
         messageId = data.getInteger("id");
-        time = messageId = data.getInteger("time");
+        time = data.getInteger("time");
         chain.remove(0);
 
         return MessageChain.getMessageChain(chain);

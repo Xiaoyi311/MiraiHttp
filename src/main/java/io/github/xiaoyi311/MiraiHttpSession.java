@@ -1,9 +1,9 @@
-package hi.xiaoyi311;
+package io.github.xiaoyi311;
 
 import com.alibaba.fastjson.JSONObject;
-import hi.xiaoyi311.entity.Robot;
-import hi.xiaoyi311.err.*;
-import hi.xiaoyi311.util.Network;
+import io.github.xiaoyi311.entity.Robot;
+import io.github.xiaoyi311.err.*;
+import io.github.xiaoyi311.util.Network;
 
 /**
  * Mirai Session 存储<br/>
@@ -218,4 +218,10 @@ public class MiraiHttpSession {
     public MiraiHttpApi getApi(){
         return new MiraiHttpApi(this);
     }
+
+    /**
+     * 设置新信息查询间隔时间
+     * @param time 时间（毫秒）
+     */
+    public void setCheckTime(Integer time){ messageGet.setCheckTime(time); }
 }

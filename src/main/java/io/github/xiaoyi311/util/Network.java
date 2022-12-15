@@ -1,4 +1,4 @@
-package hi.xiaoyi311.util;
+package io.github.xiaoyi311.util;
 
 import com.alibaba.fastjson.JSONObject;
 

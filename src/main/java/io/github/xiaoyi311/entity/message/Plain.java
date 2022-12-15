@@ -1,4 +1,4 @@
-package hi.xiaoyi311.entity.message;
+package io.github.xiaoyi311.entity.message;
 
 import com.alibaba.fastjson.JSONObject;
 
@@ -11,8 +11,22 @@ public class Plain extends MessageChain {
      */
     public String msg;
 
+    /**
+     * 由文本获取
+     *
+     * @param text 文本
+     */
     public Plain(String text){
         this.msg = text;
+    }
+
+    /**
+     * 由数据信息获取
+     *
+     * @param data 数据信息
+     */
+    public Plain(JSONObject data){
+        this.msg = data.getString("text");
     }
 
     /**

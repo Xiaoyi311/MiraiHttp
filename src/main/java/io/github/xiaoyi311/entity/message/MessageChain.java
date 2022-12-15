@@ -1,8 +1,9 @@
-package hi.xiaoyi311.entity.message;
+package io.github.xiaoyi311.entity.message;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,10 +21,11 @@ public class MessageChain {
         List<MessageChain> ret = new ArrayList<>();
         dataArray.forEach((data) -> {
             try {
-                ret.add((MessageChain) Class.forName(
-                        "hi.xiaoyi311.entity.message."
+                Constructor<?> messageConst = Class.forName(
+                        "io.github.xiaoyi311.entity.message."
                                 + ((JSONObject) data).getString("type")
-                ).getConstructor().newInstance(data));
+                ).getConstructor(JSONObject.class);
+                ret.add((MessageChain) messageConst.newInstance(data));
             } catch (Exception ignored) { }
         });
         return ret.toArray(MessageChain[]::new);

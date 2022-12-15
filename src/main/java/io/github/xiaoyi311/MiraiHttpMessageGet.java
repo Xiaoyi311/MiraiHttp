@@ -1,15 +1,22 @@
-package hi.xiaoyi311;
+package io.github.xiaoyi311;
 
 import com.alibaba.fastjson.JSONObject;
-import hi.xiaoyi311.event.MessageEventBase;
-import hi.xiaoyi311.event.MiraiEventBase;
-import hi.xiaoyi311.util.Network;
+import io.github.xiaoyi311.event.MessageEventBase;
+import io.github.xiaoyi311.event.MiraiEventBase;
+import io.github.xiaoyi311.util.Network;
+
+import java.lang.reflect.Constructor;
 
 /**
  * Http 轮询多线程<br/>
  * 使用多线程获取事件与信息
  */
 public class MiraiHttpMessageGet extends Thread{
+    /**
+     * 查询间隔时间
+     */
+    private Integer checkTime = 500;
+
     /**
      * Session 管理
      */
@@ -23,6 +30,13 @@ public class MiraiHttpMessageGet extends Thread{
     protected MiraiHttpMessageGet(MiraiHttpSession session){
         this.session = session;
     }
+
+    /**
+     * 设置轮询间隔时间
+     *
+     * @param time 时间
+     */
+    protected void setCheckTime(Integer time) { checkTime = time; }
 
     @Override
     public void run() {
@@ -54,13 +68,13 @@ public class MiraiHttpMessageGet extends Thread{
                             //尝试获取对应事件或信息
                             //如果获取不到，便为暂不支持，不处理此事件
                             try {
-                                MiraiEventBase event = (MessageEventBase) Class.forName(
-                                        "hi.xiaoyi311.event."
+                                String eventPack = "io.github.xiaoyi311.event."
                                         + relData.getString("type")
-                                        + (relData.containsKey("messageChain") ? "Event" : "")
-                                ).getConstructor().newInstance(session, relData);
+                                        + (relData.containsKey("messageChain") ? "Event" : "");
+                                Constructor<?> eventConst = Class.forName(eventPack).getConstructor(MiraiHttpSession.class, JSONObject.class);
+                                MiraiEventBase event = (MessageEventBase) eventConst.newInstance(session, relData);
                                 event.doEvent(session);
-                            } catch (Exception ignored) { }
+                            } catch (Exception e) { System.out.print(e); }
                         });
                     }
                 }
@@ -69,7 +83,7 @@ public class MiraiHttpMessageGet extends Thread{
             //等待
             try {
                 //noinspection BusyWait
-                sleep(2000);
+                sleep(checkTime);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

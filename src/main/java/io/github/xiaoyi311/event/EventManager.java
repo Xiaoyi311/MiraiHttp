@@ -1,10 +1,8 @@
-package hi.xiaoyi311.event;
+package io.github.xiaoyi311.event;
 
-import hi.xiaoyi311.MiraiHttpSession;
+import io.github.xiaoyi311.MiraiHttpSession;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 /**
  * MiraiHttp 监听管理器<br/>
@@ -14,7 +12,7 @@ public class EventManager {
     /**
      * 所有监听类与 Session 对应表
      */
-    private static Map<MiraiHttpSession, Collection<MiraiEventListener>> listeners;
+    private static final Map<MiraiHttpSession, Collection<MiraiEventListener>> listeners = new HashMap<>();
 
     /**
      * 注册监听类到指定机器人
@@ -24,8 +22,9 @@ public class EventManager {
      */
     public static void addListener(MiraiHttpSession session, MiraiEventListener listener){
         Collection<MiraiEventListener> temp = listeners.get(session);
-        temp.add(listener);
-        listeners.put(session, temp);
+        Collection<MiraiEventListener> temp1 = temp == null ? new ArrayList<>() : temp;
+        temp1.add(listener);
+        listeners.put(session, temp1);
     }
 
     /**
