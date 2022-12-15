@@ -71,7 +71,7 @@ MiraiHttp 已经上传到 Maven 中心存储库，可使用以下方法设置依
     <dependency>
         <groupId>io.github.xiaoyi311</groupId>
         <artifactId>MiraiHttp</artifactId>
-        <version>1.0.0</version>
+        <version>1.1.0</version>
     </dependency>
 
 ## 项目文档
